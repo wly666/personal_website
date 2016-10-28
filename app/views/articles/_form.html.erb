@@ -1,0 +1,8 @@
+<%= form_for @article do |f|%>
+ 请输入文章标题： <%= f.text_field :title%><br/>
+ 请输入文章内容： <%= f.cktext_area :content%><br/>
+ 请输入作者：<%= f.text_field :author%><br/>
+ 请输入文章创建时间： <%= f.text_field :created_at%><br/>
+ 请输入文章修改时间：<%= f.text_field :updated_at%><br/>
+  <%= f.submit "确定"%>
+<%end%>
