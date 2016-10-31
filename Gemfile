@@ -11,3 +11,5 @@ gem 'turbolinks'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ckeditor'
+
+gem 'bootstrap-sass', '~> 3.3.5'
