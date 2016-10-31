@@ -11,9 +11,10 @@ class ArticlesController <ApplicationController
     Article.create :title=>params[:article][:title],
                    :content=>params[:article][:content],
                    :author=>params[:article][:author],
-                   :article_category_id=>params[:article_category_id],
+                   #:article_category_id=>params[:article_category_id],
+                   :article_category_id=>params[:article][:article_category_id],
                    :created_at=>params[:article][:created_at]
-    redirect_to articles_path
+    redirect_to articles_path(:article_category_id=>params[:article][:article_category_id])
   end
 
   def edit
