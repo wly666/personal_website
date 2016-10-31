@@ -8,7 +8,7 @@
   </tr>
   <% @article_categories.each do |article_category| %>
     <tr>
-      <td><%= article_category.name %></td>
+      <td><%=link_to article_category.name, articles_path(:article_category_id=>article_category.id) %></td>
       <td><%= article_category.created_at %></td>
       <td><%= article_category.updated_at %></td>
       <td>

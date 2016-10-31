@@ -1,14 +1,18 @@
 class ArticlesController <ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.where(:article_category_id=>params[:article_category_id])
   end
 
   def new
-    @article = Article.new
+    @article = Article.new(:article_category_id=>params[:article_category_id])
   end
 
   def create
-    Article.create :title=>params[:article][:title],:content=>params[:article][:content], :author=>params[:article][:author], :created_at=>params[:article][:created_at]
+    Article.create :title=>params[:article][:title],
+                   :content=>params[:article][:content],
+                   :author=>params[:article][:author],
+                   :article_category_id=>params[:article_category_id],
+                   :created_at=>params[:article][:created_at]
     redirect_to articles_path
   end
 

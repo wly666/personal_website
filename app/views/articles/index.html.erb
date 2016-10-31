@@ -20,4 +20,7 @@
     </tr>
   <%end%>
 </table>
-<%= link_to "新增文章", new_article_path%>
+<%# link_to "新增文章", new_article_path(:article_category_id=>@article.article_category_id)%>
+<%# link_to "新增文章", new_article_path(:article_category_id=>@articles.first.article_category_id)%>
+<%= link_to "新增文章", new_article_path(:article_category_id=> params[:article_category_id])%>
+<%# link_to "新增文章", new_article_path, {:controller=>"articles",:action=>"new",:article_category_id=>@article.article_category_id}%>
