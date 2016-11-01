@@ -11,9 +11,7 @@ class ArticlesController <ApplicationController
     Article.create :title=>params[:article][:title],
                    :content=>params[:article][:content],
                    :author=>params[:article][:author],
-                   #:article_category_id=>params[:article_category_id],
-                   :article_category_id=>params[:article][:article_category_id],
-                   :created_at=>params[:article][:created_at]
+                   :article_category_id=>params[:article][:article_category_id]
     redirect_to articles_path(:article_category_id=>params[:article][:article_category_id])
   end
 
@@ -26,8 +24,6 @@ class ArticlesController <ApplicationController
     @article.title = params[:article][:title]
     @article.content = params[:article][:content]
     @article.author = params[:article][:author]
-    @article.article_category_id = params[:article][:article_category_id]
-    @article.updated_at = params[:article][:updated_at]
     @article.save
     redirect_to articles_path(:article_category_id=>params[:article][:article_category_id])
   end
@@ -35,6 +31,6 @@ class ArticlesController <ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.delete
-    redirect_to articles_path
+    redirect_to articles_path(:article_category_id=>params[:article_category_id])
   end
 end
