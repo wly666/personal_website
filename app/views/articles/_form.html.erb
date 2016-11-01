@@ -1,11 +1,57 @@
-<%= form_for @article do |f|%>
+<style>
+input.error{border:1px solid red}
+textarea.error{border:1px solid red}
+label.error {
+  padding-left: 16px;
+  padding-bottom: 2px;
+  font-weight: bold;
+  color: #EA5200;
+}
+</style>
+<script>
+$(function(){
+  $("#form").validate({
+    rules:{
+      "article[title]":"required",
+      "article[content]":"required",
+      "article[author]":"required",
+      "article[created_at]":"required",
+      "article[updated_at]":"required"
+    },
+    messages:{
+      "article[title]":"请输入文章名称",
+      "article[content]":"请输入文章内容",
+      "article[author]":"请输入文章作者",
+      "article[created_at]":"请输入文章创建时间",
+      "article[updated_at]":"请输入文章修改时间"
+    }
+  });
+});
+</script>
+<%= form_for @article,:html=>{:id=>"form"} do |f|%>
   <%= f.hidden_field :article_category_id, :value=>"article_category_id" %>
-  请输入文章标题： <%= f.text_field :title%><br/>
-  请输入文章内容： <%= f.cktext_area :content%><br/>
-  请输入作者：<%= f.text_field :author%><br/>
-  文章分类：<%#select_tag "article_category_id",options_from_collection_for_select(ArticleCategory.all,'id','name')%>
-  <%= f.text_field :article_category_id, :value=>params[:article_category_id]%><br/>
-  请输入文章创建时间： <%= f.text_field :created_at%><br/>
-  请输入文章修改时间：<%= f.text_field :updated_at%><br/>
-  <%= f.submit "确定"%>
+  <div class="input-group">
+    <span class="input-group-addon">请输入文章标题：</span>
+    <%= f.text_field :title, class:"form-control",:style=>"width:40%"%>
+  </div><br/>
+  <div class="input-group">
+    <span class="input-group-addon"> 输入文章内容：</span>
+    <%= f.cktext_area :content%>
+  </div><br/>
+  <div class="input-group">
+    <span class="input-group-addon">请输入作者：</span>
+    <%= f.text_field :author, class:"form-control",:style=>"width:40%"%></div><br/>
+  <div class="input-group">
+    <span class="input-group-addon"> 文章分类：</span><%#select_tag "article_category_id",options_from_collection_for_select(ArticleCategory.all,'id','name')%>
+  <%= f.text_field :article_category_id, :value=>params[:article_category_id], class:"form-control",:style=>"width:40%"%>
+  </div><br/>
+  <div class="input-group">
+    <span class="input-group-addon">请输入文章创建时间：</span>
+    <%= f.text_field :created_at, class:"form-control",:style=>"width:40%"%>
+  </div><br/>
+  <div class="input-group">
+    <span class="input-group-addon">请输入文章修改时间：</span>
+    <%= f.text_field :updated_at, class:"form-control",:style=>"width:40%"%>
+  </div><br/>
+  <%= f.submit "确定",:class=>"btn btn-primary"%>
 <%end%>

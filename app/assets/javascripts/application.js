@@ -16,3 +16,5 @@
 //= require ckeditor/init
 //= require bootstrap
 //= require bootstrap.min
+//= require jquery-1.11.3.min
+//= require jquery.validate

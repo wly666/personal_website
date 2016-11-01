@@ -1,6 +1,41 @@
-<%= form_for @article_category do |f|%>
-  分类名称： <%= f.text_field :name %><br/>
-  分类创建时间：<%= f.text_field :created_at %><br/>
-  分类修改时间：<%= f.text_field :updated_at %><br/>
-  <%= f.submit "确定"%>
+<style>
+input.error{border:1px solid red}
+label.error {
+  margin-right:48%;
+  margin-top: 0.8%;
+  font-weight: bold;
+  color: #EA5200;
+  float:right;
+}
+</style>
+<script>
+$(function(){
+  $("#form").validate({
+    rules:{
+      "article_category[name]":"required",
+      "article_category[created_at]":"required",
+      "article_category[updated_at]":"required"
+    },
+    messages:{
+      "article_category[name]":"请输入分类名称",
+      "article_category[created_at]":"请输入分类创建时间",
+      "article_category[updated_at]":"请输入分类修改时间"
+    }
+  });
+});
+</script>
+<%= form_for @article_category, :html=>{:id=>"form"} do |f|%>
+  <div class="input-group">
+    <span class="input-group-addon"> 分类名称：</span>
+    <%= f.text_field :name, class:"form-control",:style=>"width:40%"%>
+  </div><br/>
+  <div class="input-group">
+    <span class="input-group-addon">分类创建时间：</span>
+    <%= f.text_field :created_at, :class=>"form-control",:style=>"width:38.4%" %>
+  </div><br/>
+  <div class="input-group">
+    <span class="input-group-addon">分类修改时间：</span>
+    <%= f.text_field :updated_at, :class=>"form-control", :style=>"width:38.4%" %>
+  </div><br/>
+  <%= f.submit "确定", :class=>"btn btn-primary"%>
 <%end%>
