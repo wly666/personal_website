@@ -15,7 +15,7 @@
         <td><%= article.created_at %></td>
         <td><%= article.updated_at %></td>
         <td>
-          <%= link_to "修改", edit_article_path(:id=>article.id),:class=>"btn btn-primary"%>
+          <%= link_to "修改", edit_article_path(:id=>article.id, :article_category_id=>params[:article_category_id]),:class=>"btn btn-primary"%>
           <%= link_to "删除", article_path(:id=>article.id), :method=>"delete", :data=>{:confirm=>"确定要删除这篇文章吗?"},:class=>"btn btn-danger"%>
         </td>
       </tr>

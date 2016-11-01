@@ -26,9 +26,10 @@ class ArticlesController <ApplicationController
     @article.title = params[:article][:title]
     @article.content = params[:article][:content]
     @article.author = params[:article][:author]
+    @article.article_category_id = params[:article][:article_category_id]
     @article.updated_at = params[:article][:updated_at]
     @article.save
-    redirect_to articles_path
+    redirect_to articles_path(:article_category_id=>params[:article][:article_category_id])
   end
 
   def destroy
