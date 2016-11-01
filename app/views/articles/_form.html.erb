@@ -39,7 +39,7 @@ $(function(){
     <%= f.text_field :author, class:"form-control",:style=>"width:40%"%></div><br/>
   <div class="input-group">
     <span class="input-group-addon"> 文章分类：</span><%#select_tag "article_category_id",options_from_collection_for_select(ArticleCategory.all,'id','name')%>
-  <%= f.text_field :article_category_id, :value=>params[:article_category_id], class:"form-control",:style=>"width:40%"%>
+  <%= f.text_field :article_category_id, :readonly=>{:value=>params[:article_category_id]}, class:"form-control",:style=>"width:40%"%>
   </div><br/>
   <!--时间数据库自动生成，不用输入
   <div class="input-group">
