@@ -15,15 +15,11 @@ $(function(){
       "article[title]":"required",
       "article[content]":"required",
       "article[author]":"required",
-      "article[created_at]":"required",
-      "article[updated_at]":"required"
     },
     messages:{
-      "article[title]":"请输入文章名称",
-      "article[content]":"请输入文章内容",
-      "article[author]":"请输入文章作者",
-      "article[created_at]":"请输入文章创建时间",
-      "article[updated_at]":"请输入文章修改时间"
+      "article[title]":"文章名称不能为空",
+      "article[content]":"文章内容不能为空",
+      "article[author]":"文章作者不能为空",
     }
   });
 });
@@ -39,12 +35,13 @@ $(function(){
     <%= f.cktext_area :content%>
   </div><br/>
   <div class="input-group">
-    <span class="input-group-addon">请输入作者：</span>
+    <span class="input-group-addon">请输入文章作者：</span>
     <%= f.text_field :author, class:"form-control",:style=>"width:40%"%></div><br/>
   <div class="input-group">
     <span class="input-group-addon"> 文章分类：</span><%#select_tag "article_category_id",options_from_collection_for_select(ArticleCategory.all,'id','name')%>
   <%= f.text_field :article_category_id, :value=>params[:article_category_id], class:"form-control",:style=>"width:40%"%>
   </div><br/>
+  <!--时间数据库自动生成，不用输入
   <div class="input-group">
     <span class="input-group-addon">请输入文章创建时间：</span>
     <%= f.text_field :created_at, class:"form-control",:style=>"width:40%"%>
@@ -53,5 +50,6 @@ $(function(){
     <span class="input-group-addon">请输入文章修改时间：</span>
     <%= f.text_field :updated_at, class:"form-control",:style=>"width:40%"%>
   </div><br/>
+  -->
   <%= f.submit "确定",:class=>"btn btn-primary"%>
 <%end%>
