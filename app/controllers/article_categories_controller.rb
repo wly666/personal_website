@@ -8,7 +8,7 @@ class ArticleCategoriesController < ApplicationController
   end
 
   def create
-    ArticleCategory.create :name=>params[:article_category][:name],:created_at=>params[:article_category][:created_at]
+    ArticleCategory.create :name=>params[:article_category][:name]
     redirect_to article_categories_path
   end
 
@@ -19,7 +19,6 @@ class ArticleCategoriesController < ApplicationController
   def update
     @article_category = ArticleCategory.find(params[:id])
     @article_category.name = params[:article_category][:name]
-    @article_category.updated_at = params[:article_category][:updated_at]
     @article_category.save
     redirect_to article_categories_path
   end
