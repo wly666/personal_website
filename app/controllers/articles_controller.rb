@@ -33,4 +33,8 @@ class ArticlesController <ApplicationController
     @article.delete
     redirect_to articles_path(:article_category_id=>params[:article_category_id])
   end
+
+  def show
+    @article = Article.find(params[:id])
+  end
 end

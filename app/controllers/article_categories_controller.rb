@@ -28,4 +28,11 @@ class ArticleCategoriesController < ApplicationController
     @article_category.delete
     redirect_to article_categories_path
   end
+
+  def show_index
+    @categories = ArticleCategory.all
+    @one_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[0].id)
+    @two_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[1].id)
+    @three_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[2].id)
+  end
 end

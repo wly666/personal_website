@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require ckeditor/init
 //= require bootstrap
 //= require bootstrap.min
 //= require jquery-1.11.3.min
 //= require jquery.validate
+//= require jssor.slider-21.1.6.mini
