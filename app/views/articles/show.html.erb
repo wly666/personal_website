@@ -1,5 +1,16 @@
-<div>
-  <h1><font color=blue><%= @article.title%></font></h1>
-  <p><%= raw @article.content%></p>
+<style>
+#full_div{
+  background-image: url(<%=asset_path "a.jpg"%>);
+  background-repeat: no-repeat;
+  width: 1170px;
+  height: 950px;
+  margin: 0px auto;
+}
+</style>
+<div class="container">
+  <div id="full_div">
+    <p align="center" style="font-size: 4em;"><%= @article.title%></p>
+    <div style="margin-left: 60px; font-size: 2em;"><%= raw @article.content%></div>
+  </div>
   <%=link_to "返回", "/article_categories/show_index", :class=>"btn btn-primary"%>
 </div>
