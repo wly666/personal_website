@@ -20,6 +20,7 @@ jQuery(document).ready(function ($) {
 });
 </script>
 <style>
+a{color:#000000}
 .jssora02l, .jssora02r {
   display: block;
   position: absolute;
@@ -65,7 +66,7 @@ jQuery(document).ready(function ($) {
     <div data-p="112.50">
       <div data-u="image">
         <img src="/img/1.jpg" width="1260px" height="950px" style="position:relative"/>
-        <div style="position:absolute;top:35px;height:30px;line-height:30px;">
+        <div style="position:absolute;top:35px;left:400px;height:30px;line-height:30px;">
           我是自我介绍
         </div>
       </div>
@@ -78,9 +79,9 @@ jQuery(document).ready(function ($) {
     <div data-p="112.50" style="display: none;">
       <div data-u="image">
         <img src="/img/2.jpg" width="1260px" height="950px" style="position:relative"/>
-        <div style="position:absolute;top:35px;height:30px;line-height:30px;">
+        <div style="position:absolute;top:35px;left:400px;height:30px;line-height:30px;">
           <% @one_articles.each do |one_article| %>
-            <%=link_to one_article.title, article_path(:id=>one_article.id)%>
+            <%=link_to one_article.title, article_path(:id=>one_article.id)%><br/>
           <%end%>
         </div>
       </div>
@@ -93,9 +94,9 @@ jQuery(document).ready(function ($) {
     <div data-p="112.50" style="display: none;">
       <div data-u="image">
         <img src="/img/3.jpg" width="1260px" height="950px" style="position:relative"/>
-        <div style="position:absolute;top:35px;height:30px;line-height:30px;">
+        <div style="position:absolute;top:35px;left:400px;height:30px;line-height:30px;">
           <% @two_articles.each do |two_article| %>
-            <%=link_to two_article.title, article_path(:id=>two_article.id)%>
+            <%=link_to two_article.title, article_path(:id=>two_article.id)%></br>
           <%end%>
         </div>
       </div>
@@ -108,9 +109,9 @@ jQuery(document).ready(function ($) {
     <div data-p="112.50" style="display: none;">
       <div data-u="image">
         <img src="/img/4.jpg" width="1260px" height="950px" style="position:relative"/>
-        <div style="position:absolute;top:35px;height:30px;line-height:30px;">
+        <div style="position:absolute;top:35px;left:400px;height:30px;line-height:30px;">
           <% @three_articles.each do |three_article| %>
-            <%=link_to three_article.title, article_path(:id=>three_article.id)%>
+            <%=link_to three_article.title, article_path(:id=>three_article.id)%></br>
           <%end%>
         </div>
       </div>
