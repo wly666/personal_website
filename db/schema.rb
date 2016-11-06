@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102071027) do
+ActiveRecord::Schema.define(version: 20161106091927) do
 
   create_table "article_categories", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 20161102071027) do
     t.integer  "article_category_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "amount",              limit: 4
+  end
+
+  create_table "cartograms", force: :cascade do |t|
+    t.integer "amount", limit: 4
+    t.date    "date"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|

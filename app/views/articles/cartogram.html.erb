@@ -1,0 +1,45 @@
+<div id="container" style="min-width: 310px; height: 1000px; margin: 0 auto">
+</div>
+<script>
+$(function () {
+  Highcharts.chart('container', {
+    chart: {
+      type: 'spline'
+    },
+    title: {
+      text: '点击量统计图'
+    },
+    subtitle: {
+      text: '所有文章每天点击量统计'
+    },
+    xAxis: {
+      categories: [<%=raw @x_axis%>]
+    },
+    yAxis: {
+      title: {
+        text: '点击量'
+      },
+    },
+    tooltip: {
+      crosshairs: true,
+      shared: true
+    },
+    plotOptions: {
+      spline: {
+        marker: {
+          radius: 8,
+          lineColor: '#666666',
+          lineWidth: 1
+        }
+      }
+    },
+    series: [{
+      name: '点击量',
+      marker: {
+        symbol: 'square'
+      },
+      data: [<%= @daily_pvs%>]
+    }]
+  });
+});
+</script>

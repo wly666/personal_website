@@ -10,7 +10,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :articles
+  resources :articles do
+    collection do
+      get :cartogram
+    end
+  end
 
   root to: 'article_categories#show_index'
 

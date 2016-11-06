@@ -1,4 +1,7 @@
 class ArticlesController <ApplicationController
+
+  before_action :update_amount, :only=>[:show]
+
   def index
     @articles = Article.where(:article_category_id=>params[:article_category_id])
   end
@@ -9,9 +12,9 @@ class ArticlesController <ApplicationController
 
   def create
     Article.create :title=>params[:article][:title],
-                   :content=>params[:article][:content],
-                   :author=>params[:article][:author],
-                   :article_category_id=>params[:article][:article_category_id]
+      :content=>params[:article][:content],
+      :author=>params[:article][:author],
+      :article_category_id=>params[:article][:article_category_id]
     redirect_to articles_path(:article_category_id=>params[:article][:article_category_id])
   end
 
@@ -36,5 +39,30 @@ class ArticlesController <ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    if @article.amount == nil
+      @article.amount=0
+    else
+      @article.amount = @article.amount + 1
+    end
+    @article.save!
+  end
+
+  def cartogram
+    # 这里调用Article模型内部的方法tongji. 很好的实现了，将逻辑代码存放到model中，
+    # 让controller实现了对 路由动作的专注。
+    @x_axis = Article.tongji[:x]
+    @daily_pvs = Article.tongji[:y]
+  end
+
+  private
+
+  def update_amount
+    now_date = Time.now.strftime("%Y-%m-%d")
+    @amount = Cartogram.where('date = ? ', now_date ).first
+    if @amount.blank?
+      @amount = Cartogram.create :date => now_date , :amount => 0
+    end
+    @amount.amount = @amount.amount + 1
+    @amount.save!
   end
 end
