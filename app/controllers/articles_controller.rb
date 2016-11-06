@@ -15,6 +15,7 @@ class ArticlesController <ApplicationController
       :content=>params[:article][:content],
       :author=>params[:article][:author],
       :article_category_id=>params[:article][:article_category_id],
+      :file_path=>params[:article][:file_path]
     redirect_to articles_path(:article_category_id=>params[:article][:article_category_id])
   end
 
