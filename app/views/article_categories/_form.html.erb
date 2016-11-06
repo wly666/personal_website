@@ -30,14 +30,15 @@ $(function(){
     <%= f.text_field :name, class:"form-control",:style=>"width:40%"%>
   </div><br/>
   <!--
-  <div class="input-group">
+    <div class="input-group">
     <span class="input-group-addon">分类创建时间：</span>
     <%= f.text_field :created_at, :class=>"form-control",:style=>"width:38.4%" %>
-  </div><br/>
-  <div class="input-group">
+    </div><br/>
+    <div class="input-group">
     <span class="input-group-addon">分类修改时间：</span>
     <%= f.text_field :updated_at, :class=>"form-control", :style=>"width:38.4%" %>
-  </div><br/>
+    </div><br/>
   -->
   <%= f.submit "确定", :class=>"btn btn-primary"%>
+  <%= link_to "返回", article_categories_path, :class=>"btn btn-primary"%>
 <%end%>
