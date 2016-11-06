@@ -14,7 +14,7 @@ class ArticlesController <ApplicationController
     Article.create :title=>params[:article][:title],
       :content=>params[:article][:content],
       :author=>params[:article][:author],
-      :article_category_id=>params[:article][:article_category_id]
+      :article_category_id=>params[:article][:article_category_id],
     redirect_to articles_path(:article_category_id=>params[:article][:article_category_id])
   end
 

@@ -43,6 +43,10 @@ $(function(){
     <%#select_tag "article_category_id",options_from_collection_for_select(ArticleCategory.all,'id','name')%>
     <%= f.text_field :article_category_id, :readonly=>{:value=>params[:article_category_id]}, class:"form-control",:style=>"width:40%"%>
   </div><br/>
+  <div class="input-group">
+    <span class="input-group-addon">文件上传：</span>
+    <%= f.file_field :file_path, class:"form-control",:style=>"width:40%"%>
+  </div><br/>
   <!--时间数据库自动生成，不用输入
     <div class="input-group">
     <span class="input-group-addon">请输入文章创建时间：</span>
