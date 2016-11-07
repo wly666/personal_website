@@ -3,7 +3,7 @@ class ArticlesController <ApplicationController
   before_action :update_amount, :only=>[:show]
 
   def index
-    @articles = Article.where(:article_category_id=>params[:article_category_id])
+    @articles = Article.where(:article_category_id=>params[:article_category_id]).page(params[:page]).per(10)
   end
 
   def new
