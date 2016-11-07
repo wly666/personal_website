@@ -20,3 +20,5 @@ gem 'log4r', '1.1.9'
 gem 'carrierwave'
 
 gem 'kaminari'
+
+gem 'rufus-scheduler'
