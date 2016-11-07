@@ -31,8 +31,21 @@ class ArticleCategoriesController < ApplicationController
 
   def show_index
     @categories = ArticleCategory.all
-    @one_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[0].id)
-    @two_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[1].id)
-    @three_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[2].id)
+    #puts "==================#{params[:title]}"
+    if params[:title].present?
+      @one_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[0].id).where("title like '%#{params[:title]}%'")
+    else
+      @one_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[0].id)
+    end
+    if params[:title].present?
+      @two_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[1].id).where("title like '%#{params[:title]}%'")
+    else
+      @two_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[1].id)
+    end
+    if params[:title].present?
+      @three_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[2].id).where("title like '%#{params[:title]}%'")
+    else
+      @three_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[2].id)
+    end
   end
 end
