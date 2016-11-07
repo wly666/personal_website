@@ -32,18 +32,18 @@ class ArticleCategoriesController < ApplicationController
   def show_index
     @categories = ArticleCategory.all
     #puts "==================#{params[:title]}"
-    if params[:title].present?
-      @one_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[0].id).where("title like '%#{params[:title]}%'")
+    if params[:title1].present?
+      @one_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[0].id).where("title like '%#{params[:title1]}%'")
     else
       @one_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[0].id)
     end
-    if params[:title].present?
-      @two_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[1].id).where("title like '%#{params[:title]}%'")
+    if params[:title2].present?
+      @two_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[1].id).where("title like '%#{params[:title2]}%'")
     else
       @two_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[1].id)
     end
-    if params[:title].present?
-      @three_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[2].id).where("title like '%#{params[:title]}%'")
+    if params[:title3].present?
+      @three_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[2].id).where("title like '%#{params[:title3]}%'")
     else
       @three_articles = Article.all.joins(:article_category).where(:article_category_id=>@categories[2].id)
     end

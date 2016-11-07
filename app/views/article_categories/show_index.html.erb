@@ -80,7 +80,13 @@ a{color:#000000}
       <div data-u="image">
         <img src="/img/2.jpg" width="1260px" height="950px" style="position:relative"/>
         <div style="position:absolute;top:35px;left:400px;height:30px;line-height:30px;">
-          <%= render :partial=>"queryForm"%>
+          <form method="get" class="form-inline">
+            <div class="form-group">
+              <font color="red" size="5em"> 请输入关键字：</font>
+              <input class="form-control" style="width:100%" type="text" name="title1" id="title1" />
+              <input type="submit" value="查询" class="btn btn-primary" />
+            </div>
+          </form>
           <% @one_articles.each do |one_article| %>
             <%=link_to one_article.title, article_path(:id=>one_article.id)%><br/>
           <%end%>
@@ -96,7 +102,13 @@ a{color:#000000}
       <div data-u="image">
         <img src="/img/3.jpg" width="1260px" height="950px" style="position:relative"/>
         <div style="position:absolute;top:35px;left:400px;height:30px;line-height:30px;">
-          <%= render :partial=>"queryForm"%>
+          <form method="get" class="form-inline">
+            <div class="form-group">
+              <font color="red" size="5em"> 请输入关键字：</font>
+              <input class="form-control" style="width:100%" type="text" name="title2" id="title2" />
+              <input type="submit" value="查询" class="btn btn-primary" />
+            </div>
+          </form>
           <% @two_articles.each do |two_article| %>
             <%=link_to two_article.title, article_path(:id=>two_article.id)%></br>
           <%end%>
@@ -112,7 +124,13 @@ a{color:#000000}
       <div data-u="image">
         <img src="/img/4.jpg" width="1260px" height="950px" style="position:relative"/>
         <div style="position:absolute;top:35px;left:400px;height:30px;line-height:30px;">
-          <%= render :partial=>"queryForm"%>
+          <form method="get" class="form-inline">
+            <div class="form-group">
+              <font color="red" size="5em"> 请输入关键字：</font>
+              <input class="form-control" style="width:100%" type="text" name="title3" id="title3" />
+              <input type="submit" value="查询" class="btn btn-primary" />
+            </div>
+          </form>
           <% @three_articles.each do |three_article| %>
             <%=link_to three_article.title, article_path(:id=>three_article.id)%></br>
           <%end%>
