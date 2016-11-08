@@ -45,7 +45,10 @@ $(function(){
   </div><br/>
   <div class="input-group">
     <span class="input-group-addon">文件上传：</span>
-    <%= f.file_field :file_path, class:"form-control",:style=>"width:40%"%>
+    <%= f.file_field :file_path, class:"form-control",:style=>"width:40%"%><br/>
+    <div>
+    原文件： <%= link_to @article.file_path, "#{@article.file_path}" %>
+    </div>
   </div><br/>
   <!--时间数据库自动生成，不用输入
     <div class="input-group">
