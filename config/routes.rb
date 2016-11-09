@@ -7,15 +7,18 @@ Rails.application.routes.draw do
   resources :article_categories do
     collection do
       get :show_index
+      get :main_index
+      get :main_about
     end
   end
 
   resources :articles do
     collection do
       get :cartogram
+      get :main_index
     end
   end
 
-  root to: 'article_categories#show_index'
+  root to: 'article_categories#main_index'
 
 end

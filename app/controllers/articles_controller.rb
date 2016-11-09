@@ -39,13 +39,23 @@ class ArticlesController <ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article_categories = ArticleCategory.all
+    @article = Article.joins(:article_category).find(params[:id])
+    @article_category_id = @article.article_category_id
     if @article.amount == nil
       @article.amount=0
     else
       @article.amount = @article.amount + 1
     end
     @article.save!
+    render :layout=>"main_application"
+  end
+
+  def main_index
+    @article_categories = ArticleCategory.all
+    @articles = Article.where(:article_category_id=>params[:article_category_id]).page(params[:page]).per(10)
+    @articles = @articles.where("title like '%#{params[:title]}%'") if params[:title].present?
+    render :layout=>"main_application"
   end
 
   def cartogram

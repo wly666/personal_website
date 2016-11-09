@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>王丽云的个人博客</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application'  %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="header">
+      <div>
+        <a href="/article_categories/main_index.html"><img src=<%= asset_path "logo.jpg"%> alt="Logo"></a>
+      </div>
+    </div>
+
+    <div id="body">
+      <div id="sidebar">
+        <ul>
+          <li>
+            <a class="home" href="/article_categories/main_index">主页</a>
+          </li>
+          <li>
+            <a class="about" href="/article_categories/main_about">关于我</a>
+          </li>
+          <%@article_categories.each do |article_category| %>
+            <li>
+              <%=link_to article_category.name, main_index_articles_path(:article_category_id=>article_category.id), :class=>"blog"%>
+            </li>
+          <%end%>
+        </ul>
+        <div>
+          <h3>如有建议，扫码加微信，谢谢！</h3>
+          <div>
+            <img src=<%=asset_path "a.jpg"%> style="width:98%"/>
+          </div>
+        </div>
+        <div>
+          <h3>联系我</h3>
+          <a href="http://www.freewebsitetemplates.com/misc/contact" target="_blank" id="info">8888888@wly.com</a>
+          <a href="http://www.freewebsitetemplates.com/misc/contact" target="_blank" id="phone">8888888</a>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
+
+    <div id="footer">
+      <div>
+        <p>
+        &copy; Copyright 2023. Company name all rights reserved.
+        </p>
+      </div>
+    </div>
+
+  </body>
+</html>

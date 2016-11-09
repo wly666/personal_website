@@ -29,6 +29,16 @@ class ArticleCategoriesController < ApplicationController
     redirect_to article_categories_path
   end
 
+  def main_index
+    @article_categories = ArticleCategory.all
+    render :layout=>"main_application"
+  end
+
+  def main_about
+    @article_categories = ArticleCategory.all
+    render :layout=>"main_application"
+  end
+
   def show_index
     @categories = ArticleCategory.all
 

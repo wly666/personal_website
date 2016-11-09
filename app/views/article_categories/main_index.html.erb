@@ -1,0 +1,114 @@
+<script>
+jQuery(document).ready(function ($) {
+
+  var jssor_1_SlideoTransitions = [
+    [{b:-1,d:1,o:-1},{b:0,d:1000,x:-257,y:-5,o:1}],
+    [{b:480,d:520,x:120,y:-270}],
+    [{b:1000,d:500,y:250},{b:8000,d:1000,x:600}],
+    [{b:-1,d:1,o:-1,sX:-0.6,sY:-0.6},{b:1500,d:500,o:1,r:360,sX:0.6,sY:0.6},{b:8000,d:1000,y:-150}],
+    [{b:-1,d:1,o:-1,tZ:-200},{b:2000,d:1000,o:1,tZ:200},{b:3000,d:1000,o:-1,tZ:200}],
+    [{b:-1,d:1,o:-1,tZ:-200},{b:3000,d:1000,o:1,tZ:200},{b:4000,d:1000,o:-1,tZ:200}],
+    [{b:-1,d:1,o:-1,tZ:-200},{b:4000,d:1000,o:1,tZ:200},{b:5000,d:1000,o:-1,tZ:200}],
+    [{b:-1,d:1,o:-1,tZ:-200},{b:5000,d:1000,o:1,tZ:200},{b:6000,d:1000,o:-1,tZ:200}],
+    [{b:-1,d:1,o:-1,tZ:-200},{b:6000,d:1000,o:1,tZ:200},{b:7000,d:1000,o:-1,tZ:200}],
+    [{b:-1,d:1,o:-1,tZ:-200},{b:7000,d:1000,o:1,tZ:200},{b:8000,d:1000,o:-1,tZ:200}],
+    [{b:-1,d:1,c:{x:250.0,t:-250.0}},{b:0,d:1000,c:{x:-250.0,t:250.0}},{b:5000,d:1000,y:100}],
+    [{b:-1,d:1,o:-1},{b:1000,d:1000,o:1},{b:5000,d:1000,y:280}],
+    [{b:2000,d:1000,y:190,e:{y:28}},{b:5000,d:1000,x:280}],
+    [{b:3000,d:520,y:50},{b:5000,d:1000,y:-50}],
+    [{b:3520,d:480,x:-400},{b:5000,d:800,x:400,e:{x:7}}],
+    [{b:4000,d:500,x:-400},{b:5000,d:800,x:400,e:{x:7}}],
+    [{b:4500,d:500,x:-400},{b:5000,d:800,x:400,e:{x:7}}],
+    [{b:-1,d:1,c:{x:250.0,t:-250.0}},{b:0,d:1000,c:{x:-250.0,t:250.0}},{b:10000,d:500,y:90}],
+    [{b:-1,d:1,c:{x:150.0,t:-150.0}},{b:1000,d:1000,c:{x:-150.0,t:150.0}},{b:10000,d:500,c:{y:150.0,m:-150.0}}],
+    [{b:2000,d:500,x:220}],
+    [{b:3500,d:500,rX:-20},{b:4000,d:1000,rX:40},{b:5000,d:500,rX:-10},{b:9500,d:500,o:-1}],
+    [{b:3500,d:2000,r:360}],
+    [{b:-1,d:1,o:-1},{b:2500,d:500,x:76,y:-25,o:1}],
+    [{b:-1,d:1,o:-1},{b:2500,d:500,x:47,y:65,o:1}],
+    [{b:-1,d:1,o:-1},{b:2500,d:500,x:-47,y:65,o:1}],
+    [{b:-1,d:1,o:-1},{b:2500,d:500,x:-76,y:-25,o:1}],
+    [{b:-1,d:1,o:-1},{b:2500,d:500,y:-80,o:1}],
+    [{b:-1,d:1,c:{x:120.0,t:-120.0}},{b:6100,d:400,c:{x:-120.0,t:120.0}},{b:10000,d:500,y:-120}],
+    [{b:6500,d:500,x:220}],
+    [{b:-1,d:1,o:-1,r:180,sX:-0.5,sY:-0.5},{b:7000,d:500,o:1,r:180,sX:0.5,sY:0.5},{b:8000,d:500,o:-1,r:180,sX:9,sY:9}],
+    [{b:-1,d:1,o:-1,r:180,sX:-0.5,sY:-0.5},{b:8000,d:500,o:1,r:180,sX:0.5,sY:0.5},{b:9000,d:500,o:-1,r:180,sX:9,sY:9}],
+    [{b:-1,d:1,o:-1,r:180,sX:-0.5,sY:-0.5},{b:9000,d:500,o:1,r:180,sX:0.5,sY:0.5},{b:9500,d:500,o:-1,r:180,sX:9,sY:9}]
+      ];
+
+    var jssor_1_options = {
+      $AutoPlay: true,
+      $SlideEasing: $Jease$.$InOutSine,
+      $CaptionSliderOptions: {
+        $Class: $JssorCaptionSlideo$,
+        $Transitions: jssor_1_SlideoTransitions,
+        $Breaks: [
+          [{d:3000,b:8000,t:2}],
+          [{d:2000,b:5000}],
+          [{d:3000,b:9500,t:2}]
+        ]
+      },
+      $ArrowNavigatorOptions: {
+        $Class: $JssorArrowNavigator$
+      },
+      $BulletNavigatorOptions: {
+        $Class: $JssorBulletNavigator$
+      }
+    };
+
+    var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+});
+</script>
+
+<style>
+.jssorb05 {position: absolute;}
+.jssorb05 div { background-position: -7px -7px; }
+.jssorb05 div:hover, .jssorb05 .av:hover { background-position: -37px -7px; }
+.jssorb05 .av { background-position: -67px -7px; }
+.jssorb05 .dn, .jssorb05 .dn:hover { background-position: -97px -7px; }
+
+.jssora22l { background-position: -10px -31px; }
+.jssora22r { background-position: -70px -31px; }
+.jssora22l:hover { background-position: -130px -31px; }
+.jssora22r:hover { background-position: -190px -31px; }
+.jssora22l.jssora22ldn { background-position: -250px -31px; }
+.jssora22r.jssora22rdn { background-position: -310px -31px; }
+.jssora22l.jssora22lds { background-position: -10px -31px; opacity: .3; pointer-events: none; }
+.jssora22r.jssora22rds { background-position: -70px -31px; opacity: .3; pointer-events: none; }
+</style>
+
+<div class="home">
+  <div id="featured">
+    <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 580px; height: 380px; overflow: hidden; visibility: hidden;">
+      <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 580px; height: 380px; overflow: hidden;">
+        <div data-b="0" data-p="170.00" data-po="80% 55%">
+          <img src=<%= asset_path "bg.png"%> alt="Image">
+          <div data-u="caption" data-t="4" data-3d="1" style="position: absolute; top: 100px; left: 250px; width: 200px; height: 100px; background-image:url(<%= asset_path "bg-pattern.jpg"%>); font-size: 24px; color: #ffffff; line-height: 100px; text-align: center;">技术</div>
+          <div data-u="caption" data-t="5" data-3d="1" style="position: absolute; top: 100px; left: 250px; width: 200px; height: 100px; background-image:url(<%= asset_path "bg-pattern.jpg"%>); font-size: 24px; color: #ffffff; line-height: 100px; text-align: center;">生活</div>
+          <div data-u="caption" data-t="6" data-3d="1" style="position: absolute; top: 100px; left: 250px; width: 200px; height: 100px; background-image:url(<%= asset_path "bg-pattern.jpg"%>); font-size: 24px; color: #ffffff; line-height: 100px; text-align: center;">心得</div>
+          <div data-u="caption" data-t="7" data-3d="1" style="position: absolute; top: 100px; left: 250px; width: 200px; height: 100px; background-image:url(<%= asset_path "bg-pattern.jpg"%>); color: #ffffff; line-height: 100px; text-align: center;">交流</div>
+          <div data-u="caption" data-t="8" data-3d="1" style="position: absolute; top: 100px; left: 250px; width: 200px; height: 100px; background-image:url(<%= asset_path "bg-pattern.jpg"%>); color: #ffffff; line-height: 100px; text-align: center;">学习</div>
+          <div data-u="caption" data-t="9" data-3d="1" style="position: absolute; top: 100px; left: 250px; width: 200px; height: 100px; background-image:url(<%= asset_path "bg-pattern.jpg"%>); color: #ffffff; line-height: 100px; text-align: center;">更多 ...</div>
+        </div>
+      </div>
+    </div>
+    <h1><span>这个网站记录了我学习中遇到问题的解决办法和学习总结，供大家参考指点</span></h1>
+  </div>
+  <div class="section">
+    <div>
+      <p>
+      关于我是我的个人简历，包括学习经历和实践经历
+      </p>
+      <p>
+      技术里记录了平时开发过程中遇到的问题及解决办法，包括一些知识点的总结
+      </p>
+    </div>
+    <p>
+    生活里是平时一些心得体会，仅供分享
+    </p>
+    <p>
+    所有文章并不全面，如有问题，欢迎提出建议
+    </p>
+  </div>
+</div>

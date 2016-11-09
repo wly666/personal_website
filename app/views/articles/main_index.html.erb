@@ -1,0 +1,22 @@
+<div class="blog">
+  <form method="get" class="form-inline">
+    <div class="form-group">
+      <input type="hidden" id="article_category_id" name="article_category_id" value="<%=params[:article_category_id]%>"/>
+      <span><font color="#ffffff" size="4em"> 请输入关键字：</font></span>
+      <input class="form-control" style="width:50%" type="text" name="title" id="title" value="模糊匹配全文，例如：ruby"/>
+      <input type="submit" value="查询" class="btn btn-primary" />
+    </div>
+  </form>
+  <br/><br/>
+  <ul>
+    <% @articles.each do |article|%>
+      <li>
+        <%=link_to article.title, article_path(:id=>article.id), :style=>"font-size:1.5em"%><br/>
+        <span><%= article.created_at.strftime("%Y-%m-%d")%></span>
+      </li>
+    <%end%>
+  </ul>
+  <div class="table-actions-bottom" style="float:right">
+    <%= paginate @articles%>
+  </div>
+</div>
