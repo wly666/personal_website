@@ -1,6 +1,11 @@
 class ArticlesController <ApplicationController
 
   before_action :update_amount, :only=>[:show]
+  before_action :find_article_by_id, :only=>[:edit, :update, :destroy, :show]
+
+  def find_article_by_id
+    @article = Article.find(params[:id])
+  end
 
   def index
     @articles = Article.where(:article_category_id=>params[:article_category_id]).page(params[:page]).per(10)
@@ -20,11 +25,9 @@ class ArticlesController <ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
     @article.title = params[:article][:title]
     @article.content = params[:article][:content]
     @article.author = params[:article][:author]
@@ -33,14 +36,12 @@ class ArticlesController <ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
     @article.delete
     redirect_to articles_path(:article_category_id=>params[:article_category_id])
   end
 
   def show
     @article_categories = ArticleCategory.all
-    @article = Article.joins(:article_category).find(params[:id])
     @article_category_id = @article.article_category_id
     if @article.amount == nil
       @article.amount=0
