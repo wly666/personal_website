@@ -18,12 +18,12 @@ class ArticleCategoriesController < ApplicationController
   end
 
   def new
-    @article_category = ArticleCategory.new
+    @article_category =current_user.article_categories.build
     authorize! :create,@article_category
   end
 
   def create
-    ArticleCategory.create :name=>params[:article_category][:name]
+   current_user.article_categories.create :name=>params[:article_category][:name]
     redirect_to article_categories_path
   end
 
