@@ -9,11 +9,6 @@ body {
 }
 @font-face {
 	font-family: 'Conv_Bitter-Regular';
-	src: url('<%= asset_path fonts/Bitter-Regular.eot%>');
-	src: url('<%= asset_path fonts/Bitter-Regular.eot?#iefix%>') format('embedded-opentype'),
-	url('<%= asset_path fonts/Bitter-Regular.woff%>') format('woff'),
-	url('<%= asset_path fonts/Bitter-Regular.ttf%>') format('truetype'),
-	url('<%= asset_path fonts/Bitter-Regular.svg#Conv_Bitter-Regular%>') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
