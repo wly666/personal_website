@@ -1,5 +1,6 @@
 class Article <ActiveRecord::Base
   belongs_to :article_category
+  belongs_to :user
 
   mount_uploader :file_path, FileUploader
 

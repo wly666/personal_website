@@ -2,6 +2,8 @@ class ArticlesController <ApplicationController
 
   before_action :update_amount, :only=>[:show]
   before_action :find_article_by_id, :only=>[:edit, :update, :destroy, :show]
+  #load_and_authorize_resource
+  before_action :authenticate_user!, except:[:main_index, :show]
 
   def find_article_by_id
     @article = Article.find(params[:id])
@@ -12,30 +14,32 @@ class ArticlesController <ApplicationController
   end
 
   def new
-    @article = Article.new(:article_category_id=>params[:article_category_id])
+    @article = current_user.articles.build(:article_category_id=>params[:article_category_id])
   end
 
   def create
-    Article.create :title=>params[:article][:title],
+    current_user.articles.create :title=>params[:article][:title],
       :content=>params[:article][:content],
-      :author=>params[:article][:author],
+      #:author=>params[:article][:author],
       :article_category_id=>params[:article][:article_category_id],
       :file_path=>params[:article][:file_path]
     redirect_to articles_path(:article_category_id=>params[:article][:article_category_id])
   end
 
   def edit
+    authorize! :update,@article
   end
 
   def update
     @article.title = params[:article][:title]
     @article.content = params[:article][:content]
-    @article.author = params[:article][:author]
+    #@article.author = params[:article][:author]
     @article.save
     redirect_to articles_path(:article_category_id=>params[:article][:article_category_id])
   end
 
   def destroy
+    authorize! :destroy,@article
     @article.delete
     redirect_to articles_path(:article_category_id=>params[:article_category_id])
   end

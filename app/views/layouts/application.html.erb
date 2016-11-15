@@ -10,6 +10,13 @@
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <% if user_signed_in?%>
+      欢迎<%= current_user.email%>登录!
+      <%=link_to "退出登录", destroy_user_session_path, :method=>"delete"%>
+    <%else%>
+      <%=link_to "登录", new_user_session_path%>
+    <%end%>
+
     <%= yield %>
 
   </body>

@@ -2,6 +2,8 @@ class ArticleCategoriesController < ApplicationController
 
   before_action :find_article_category_by_id, :only=>[:update, :edit, :destroy]
   before_action :all, :only=>[:index, :main_index, :main_about]
+  #load_and_authorize_resource
+  before_action :authenticate_user!, except:[:main_index, :main_about]
 
   def find_article_category_by_id
     @article_category = ArticleCategory.find(params[:id])
@@ -17,6 +19,7 @@ class ArticleCategoriesController < ApplicationController
 
   def new
     @article_category = ArticleCategory.new
+    authorize! :create,@article_category
   end
 
   def create
@@ -25,6 +28,7 @@ class ArticleCategoriesController < ApplicationController
   end
 
   def edit
+    authorize! :update,@article_category
   end
 
   def update
@@ -34,6 +38,7 @@ class ArticleCategoriesController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy,@article_category
     @article_category.delete
     redirect_to article_categories_path
   end

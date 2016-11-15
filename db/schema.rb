@@ -11,23 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106123502) do
+ActiveRecord::Schema.define(version: 20161114094216) do
 
   create_table "article_categories", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id",    limit: 4
   end
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",               limit: 255
-    t.string   "author",              limit: 255
     t.string   "content",             limit: 255
     t.integer  "article_category_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "amount",              limit: 4
     t.string   "file_path",           limit: 255
+    t.integer  "user_id",             limit: 4
   end
 
   create_table "cartograms", force: :cascade do |t|
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 20161106123502) do
     t.integer  "height",            limit: 4
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.string   "avatar",            limit: 255
   end
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
@@ -64,6 +66,7 @@ ActiveRecord::Schema.define(version: 20161106123502) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "role",                   limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
