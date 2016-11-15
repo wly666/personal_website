@@ -42,8 +42,12 @@ $(function(){
   -->
   <div class="input-group">
     <span class="input-group-addon"> 文章分类：</span>
-    <%#select_tag "article_category_id",options_from_collection_for_select(ArticleCategory.all,'id','name')%>
-    <%= f.text_field :article_category_id, :readonly=>{:value=>params[:article_category_id]}, class:"form-control",:style=>"width:40%"%>
+    <% if params[:article_category_id].present?%>
+      <%= select_tag "article_category_id", options_from_collection_for_select(ArticleCategory.where(:id=>params[:article_category_id]), 'id', 'name')%>
+    <%else%>
+      <%=select_tag "article_category_id", options_from_collection_for_select(ArticleCategory.all,'id','name', @article.article_category_id)%>
+    <%end%>
+      <%# f.text_field :name, :readonly=>{:value=>params[:article_category_id]}, class:"form-control",:style=>"width:40%"%>
   </div><br/>
   <div class="input-group">
     <span class="input-group-addon">文件上传：</span>

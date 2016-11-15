@@ -19,6 +19,6 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'article_categories#index'
+  root to: 'articles#index'
 
 end

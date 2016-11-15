@@ -10,7 +10,8 @@ class ArticlesController <ApplicationController
   end
 
   def index
-    @articles = Article.where(:article_category_id=>params[:article_category_id]).page(params[:page]).per(10)
+    @articles = Article.all.page(params[:page]).per(10)
+    @articles = Article.where(:article_category_id=>params[:article_category_id]).page(params[:page]).per(10) if params[:article_category_id].present?
   end
 
   def new
@@ -21,9 +22,10 @@ class ArticlesController <ApplicationController
     current_user.articles.create :title=>params[:article][:title],
       :content=>params[:article][:content],
       #:author=>params[:article][:author],
-      :article_category_id=>params[:article][:article_category_id],
+      #:article_category_id=>params[:article][:article_category_id],
+      :article_category_id=>params[:article_category_id],
       :file_path=>params[:article][:file_path]
-    redirect_to articles_path(:article_category_id=>params[:article][:article_category_id])
+    redirect_to articles_path
   end
 
   def edit
@@ -33,9 +35,10 @@ class ArticlesController <ApplicationController
   def update
     @article.title = params[:article][:title]
     @article.content = params[:article][:content]
+    @article.article_category_id = params[:article_category_id]
     #@article.author = params[:article][:author]
     @article.save
-    redirect_to articles_path(:article_category_id=>params[:article][:article_category_id])
+    redirect_to articles_path
   end
 
   def destroy
