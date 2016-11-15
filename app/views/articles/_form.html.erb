@@ -34,10 +34,12 @@ $(function(){
     <span class="input-group-addon"> 输入文章内容：</span>
     <%= f.cktext_area :content%>
   </div><br/>
+  <!--
   <div class="input-group">
-    <span class="input-group-addon">请输入文章作者：</span>
-    <%= f.text_field :author, class:"form-control",:style=>"width:40%"%>
+    <span class="input-group-addon">文章作者：</span>
+    <%# f.text_field :author, class:"form-control",:style=>"width:40%"%>
   </div><br/>
+  -->
   <div class="input-group">
     <span class="input-group-addon"> 文章分类：</span>
     <%#select_tag "article_category_id",options_from_collection_for_select(ArticleCategory.all,'id','name')%>
