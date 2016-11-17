@@ -21,3 +21,4 @@ gem 'log4r', '1.1.9'
 gem 'kaminari'
 
 gem 'rufus-scheduler'
+gem 'rack-cors'

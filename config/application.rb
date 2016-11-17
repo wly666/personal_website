@@ -32,5 +32,12 @@ module PersonalWebsite
     log4r_config= YAML.load_file(File.join(File.dirname(__FILE__),"log4r.yml"))
     YamlConfigurator.decode_yaml( log4r_config['log4r_config'] )
     config.logger = Log4r::Logger[Rails.env]
+
+		config.middleware.insert_before 0, "Rack::Cors" do
+			allow do
+				origins '*'
+				resource '*', :headers => :any, :methods => :any
+			end
+		end
   end
 end
