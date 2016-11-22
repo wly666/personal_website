@@ -16,6 +16,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'devise'
 gem 'cancan'
 
+gem 'thin'
 gem 'log4r', '1.1.9'
 
 gem 'kaminari'
